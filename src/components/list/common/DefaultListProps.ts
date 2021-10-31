@@ -1,4 +1,3 @@
-import React from 'react';
 import { IUser } from 'utils/interfaces/IUser';
 import { ListType } from './ListTypeEnum';
 
