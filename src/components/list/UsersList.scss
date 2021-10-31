@@ -1,0 +1,28 @@
+@use '/src/styles/colors' as *;
+
+.listContainer {
+	&.ordered {
+		list-style: decimal;
+	}
+
+	&.unordered {
+		list-style: disc;
+	}
+
+	&.ordered,
+	&.unordered {
+		line-height: 1.5;
+		li div {
+			display: flex;
+			gap: 0.7rem;
+		}
+
+		li::marker,
+		li div .username {
+			color: $clr-text-secondary;
+			font-size: 0.8rem;
+			display: flex;
+			align-items: flex-end;
+		}
+	}
+}
