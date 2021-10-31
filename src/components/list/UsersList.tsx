@@ -17,9 +17,13 @@ const UsersList = ({ type = 'unordered', items }: DefaultListProps) => {
 	});
 
 	return type === 'unordered' ? (
-		<ul className="listContainer unordered">{itemsListed}</ul>
+		<ul data-testid="listComponent" className="listContainer unordered">
+			{itemsListed}
+		</ul>
 	) : (
-		<ol className="listContainer ordered">{itemsListed}</ol>
+		<ol data-testid="listComponent" className="listContainer ordered">
+			{itemsListed}
+		</ol>
 	);
 };
 
