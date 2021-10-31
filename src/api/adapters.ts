@@ -1,7 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
+
 const returnAxiosInstance = () => {
-	return axios.create({ baseURL: 'https://jsonplaceholder.typicode.com' });
+	return axios.create({ baseURL: BASE_URL });
 };
 
 const get = (url: string): Promise<AxiosResponse> => {
