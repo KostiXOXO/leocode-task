@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
-import { filterOptions } from './configs/fuseFilterOptions';
-import { userService } from 'services';
+import { defaultFilterOptions } from './configs/fuseFilterOptions';
+import { UserService } from 'services';
+import useApi from 'utils/hooks/useApi';
 import { UsersList, SearchBox } from 'components';
 import { IUser } from 'utils/interfaces/IUser';
-import './FiltrableUsersList.scss';
-import useApi from 'utils/hooks/useApi';
 import { Spinner } from 'components';
+import './FiltrableUsersList.scss';
 
-const FiltrableUsersList = () => {
-	const { getAllUsers } = userService;
+const FiltrableUsersList = ({ threshold = defaultFilterOptions.threshold }: { threshold?: number }) => {
+	const { getAllUsers } = UserService;
 	const [isLoading, data, error] = useApi(getAllUsers);
 
-	const [users, setUsers] = useState<null | IUser[]>(data as IUser[]);
+	const [users, setUsers] = useState<null | IUser[]>(null);
 	const [filteredUsers, setFilteredUsers] = useState<null | IUser[]>(null);
 	const [filter, setFilter] = useState<string>('');
 
@@ -22,14 +22,13 @@ const FiltrableUsersList = () => {
 
 	useEffect(() => {
 		if (users) {
-			const fuse = new Fuse(users, filterOptions);
+			const fuse = new Fuse(users, { ...defaultFilterOptions, threshold });
 			if (filter) {
 				const res = fuse.search(filter);
 				const filteredUsersList: any = res.map((record) => record.item);
-				setFilteredUsers(filteredUsersList);
-				return;
+				return setFilteredUsers(filteredUsersList);
 			}
-			setFilteredUsers(users);
+			return setFilteredUsers(users);
 		}
 	}, [filter, users]);
 
@@ -39,6 +38,7 @@ const FiltrableUsersList = () => {
 		<div className="filtrableUsersListContainer">
 			<SearchBox placeholder="Search by user name..." value={filter} onChange={setFilter} />
 			<UsersList type="ordered" items={filteredUsers} />
+			{error && <span className="error">{error}</span>}
 		</div>
 	);
 };

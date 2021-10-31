@@ -1,4 +1,4 @@
-export const filterOptions = {
+export const defaultFilterOptions = {
 	isCaseSensitive: false,
 	includeScore: true,
 	threshold: 0.4,
