@@ -10,7 +10,7 @@ import './FiltrableUsersList.scss';
 
 const FiltrableUsersList = ({ threshold = defaultFilterOptions.threshold }: { threshold?: number }) => {
 	const { getAllUsers } = UserService;
-	const [isLoading, data, error] = useApi(getAllUsers);
+	const [isLoading, data, error] = useApi<IUser[]>(getAllUsers);
 
 	const [users, setUsers] = useState<null | IUser[]>(null);
 	const [filteredUsers, setFilteredUsers] = useState<null | IUser[]>(null);
