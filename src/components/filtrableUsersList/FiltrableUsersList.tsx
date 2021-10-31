@@ -12,25 +12,20 @@ const FiltrableUsersList = ({ threshold = defaultFilterOptions.threshold }: { th
 	const { getAllUsers } = UserService;
 	const [isLoading, data, error] = useApi<IUser[]>(getAllUsers);
 
-	const [users, setUsers] = useState<null | IUser[]>(null);
 	const [filteredUsers, setFilteredUsers] = useState<null | IUser[]>(null);
 	const [filter, setFilter] = useState<string>('');
 
 	useEffect(() => {
-		setUsers(data as IUser[]);
-	}, [data]);
-
-	useEffect(() => {
-		if (users) {
-			const fuse = new Fuse(users, { ...defaultFilterOptions, threshold });
+		if (data) {
+			const fuse = new Fuse(data, { ...defaultFilterOptions, threshold });
 			if (filter) {
 				const res = fuse.search(filter);
 				const filteredUsersList: any = res.map((record) => record.item);
 				return setFilteredUsers(filteredUsersList);
 			}
-			return setFilteredUsers(users);
+			return setFilteredUsers(data);
 		}
-	}, [filter, users]);
+	}, [filter, data]);
 
 	return isLoading ? (
 		<Spinner />

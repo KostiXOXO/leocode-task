@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useApi = <T = any>(apiFunction: Function) => {
+const useApi = <T>(apiFunction: Function): [boolean, T | null, string | null] => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [data, setData] = useState<T | null>(null);
 	const [error, setError] = useState<string | null>(null);
