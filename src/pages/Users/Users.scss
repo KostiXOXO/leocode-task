@@ -1,0 +1,18 @@
+.usersPageContainer {
+	max-width: 50rem;
+	min-width: 30rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	padding: 2rem;
+
+	border-radius: 10px;
+	border: 1px solid rgba(#000, 0.1);
+	box-shadow: 0 0 30px 3px rgba(#000, 0.1);
+
+	h2 {
+		font-size: 2rem;
+	}
+}
