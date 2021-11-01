@@ -11,6 +11,7 @@ const SearchBox = ({
 	return (
 		<form className="userInputForm">
 			<input
+				data-testid="input-field"
 				aria-label={label}
 				type="text"
 				placeholder={placeholder}
