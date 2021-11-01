@@ -1,6 +1,6 @@
 export const defaultFilterOptions = {
 	isCaseSensitive: false,
 	includeScore: true,
-	threshold: 0.4,
+	threshold: 0.3,
 	keys: ['name', 'username'],
 };
