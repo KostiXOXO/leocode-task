@@ -1,3 +1,5 @@
+@use '/src/styles/colors' as *;
+
 .filtrableUsersListContainer {
 	display: flex;
 	flex-direction: column;
@@ -5,6 +7,6 @@
 	min-width: 20rem;
 
 	.error {
-		color: #b40000;
+		color: $clr-text-error;
 	}
 }
