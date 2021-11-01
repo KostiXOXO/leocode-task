@@ -13,14 +13,14 @@ instead of just
 
 Important commands (tho I know it's all in package.json and anyone can look it up)
 
-```bash
+```
 run:
     yarn dev
 
 test: 
     yarn test
 
-test with updating shapshots:
+test with updating snapshots:
     yarn test -- -u
 ```
 
