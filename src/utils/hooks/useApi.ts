@@ -9,6 +9,7 @@ const useApi = <T>(apiFunction: Function): [boolean, T | null, string | null] =>
 		apiFunction()
 			.then(({ data }: { data: T }) => {
 				setData(data);
+				setError(null);
 				setIsLoading(false);
 			})
 			.catch(() => {
