@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
 import { defaultFilterOptions } from './configs/fuseFilterOptions';
-import { UserService } from 'services';
-import useApi from 'utils/hooks/useApi';
-import { UsersList, SearchBox } from 'components';
 import { IUser } from 'utils/interfaces/IUser';
-import { Spinner } from 'components';
+import { SearchBox, UsersList } from 'components';
 import './FiltrableUsersList.scss';
 
-const FiltrableUsersList = ({ threshold = defaultFilterOptions.threshold }: { threshold?: number }) => {
-	const { getAllUsers } = UserService;
-	const [isLoading, data, error] = useApi<IUser[]>(getAllUsers);
+interface IProps {
+	data: IUser[];
+	threshold?: number;
+}
 
+const FiltrableUsersList = ({ data, threshold = defaultFilterOptions.threshold }: IProps) => {
 	const [filteredUsers, setFilteredUsers] = useState<null | IUser[]>(null);
 	const [filter, setFilter] = useState<string>('');
 
@@ -27,13 +26,10 @@ const FiltrableUsersList = ({ threshold = defaultFilterOptions.threshold }: { th
 		}
 	}, [filter, data]);
 
-	return isLoading ? (
-		<Spinner />
-	) : (
+	return (
 		<div className="filtrableUsersListContainer">
 			<SearchBox placeholder="Search by user name..." value={filter} onChange={setFilter} />
 			<UsersList type="ordered" items={filteredUsers} />
-			{error && <span className="error">{error}</span>}
 		</div>
 	);
 };
