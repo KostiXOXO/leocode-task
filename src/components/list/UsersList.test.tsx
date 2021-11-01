@@ -1,6 +1,5 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
-import renderer from 'react-test-renderer';
 
 import UsersList from './UsersList';
 import { sampleData } from 'utils/test-utils/userApiTestData';
@@ -15,16 +14,18 @@ it('Renders UserList with given name and username starting with @', () => {
 	});
 });
 
-it('Renders with a className equal to the type', () => {
-	render(<UsersList type="ordered" items={sampleData} />);
-	const listComponentOrdered = screen.getByTestId('listComponent');
-	expect(listComponentOrdered).toHaveClass('ordered');
+describe('Renders with a className equal to the type', () => {
+	it('Renders with a className equal to ordered', () => {
+		render(<UsersList type="ordered" items={sampleData} />);
+		const listComponentOrdered = screen.getByTestId('listComponent');
+		expect(listComponentOrdered).toHaveClass('ordered');
+	});
 
-	cleanup();
-
-	render(<UsersList type="unordered" items={sampleData} />);
-	const listComponentUnordered = screen.getByTestId('listComponent');
-	expect(listComponentUnordered).toHaveClass('unordered');
+	it('Renders with a className equal to unordered', () => {
+		render(<UsersList type="unordered" items={sampleData} />);
+		const listComponentUnordered = screen.getByTestId('listComponent');
+		expect(listComponentUnordered).toHaveClass('unordered');
+	});
 });
 
 it('While no type given - renders with a className equal to unordered', () => {
