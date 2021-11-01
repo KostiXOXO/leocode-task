@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot matches previous version 1`] = `
+<div
+  className="appContainer"
+>
+  <div
+    className="spinner"
+    data-testid="spinner"
+  >
+    <span
+      className="spinner-inner-1"
+    />
+    <span
+      className="spinner-inner-2"
+    />
+    <span
+      className="spinner-inner-3"
+    />
+  </div>
+</div>
+`;

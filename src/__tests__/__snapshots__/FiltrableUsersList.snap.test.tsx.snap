@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component did not change 1`] = `
+<div
+  className="filtrableUsersListContainer"
+>
+  <form
+    className="userInputForm"
+  >
+    <input
+      aria-label="searchbox-input-field"
+      data-testid="input-field"
+      onChange={[Function]}
+      placeholder="Search by user name..."
+      type="text"
+      value=""
+    />
+  </form>
+  <ol
+    className="listContainer ordered"
+    data-testid="listComponent"
+  />
+</div>
+`;

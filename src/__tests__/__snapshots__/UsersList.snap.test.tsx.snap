@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component did not change 1`] = `
+<ul
+  className="listContainer unordered"
+  data-testid="listComponent"
+>
+  <li>
+    <div>
+      <span
+        className="name"
+      >
+        <strong>
+          test user
+        </strong>
+      </span>
+      <span
+        className="username"
+      >
+        @test_user1
+      </span>
+    </div>
+  </li>
+  <li>
+    <div>
+      <span
+        className="name"
+      >
+        <strong>
+          tetrisuser
+        </strong>
+      </span>
+      <span
+        className="username"
+      >
+        @noneman
+      </span>
+    </div>
+  </li>
+</ul>
+`;
