@@ -11,10 +11,10 @@ instead of just
 @use 'styles/colors' as *;
 ```
 
-Important commands (tho I know it's all in package.json and anyone can look it up)
+
 
 ```
-run:
+run with:
     yarn dev
 
 test: 
@@ -22,9 +22,12 @@ test:
 
 test with updating snapshots:
     yarn test -- -u
+    
+build and build preview:
+    yarn build && yarn serve
 ```
 
 My tests may also not be the best, cuz it's my firt time really worrying about writing tests, which is kinda sad, but yeah..
 Anyway I'm gonna learn how to be better at it, hope y'all can guide me a little!
 
-Looking forward to get my code review.
+Looking forward to get my code review!
